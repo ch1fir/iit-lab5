@@ -28,3 +28,4 @@ jobs:
           context: .
           push: true
           tags: ch1fir/iit-lab5:latest
+          
