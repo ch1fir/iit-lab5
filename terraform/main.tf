@@ -71,19 +71,19 @@ resource "aws_instance" "lab6_instance" {
   vpc_security_group_ids = [aws_security_group.lab6_sg.id]
 
   user_data = <<-EOF
-    #!/bin/bash
-    apt-get update -y
-    apt-get install -y docker.io
-    systemctl enable docker
-    systemctl start docker
+#!/bin/bash
+apt-get update -y
+apt-get install -y docker.io
+systemctl enable docker
+systemctl start docker
 
-    docker pull ch1fir/iit-lab5:latest
+docker pull ch1fir/iit-lab5:latest
 
-    docker run -d \
-      --name lab4-container \
-      --restart unless-stopped \
-      -p 80:80 \
-      ch1fir/iit-lab5:latest
+docker run -d \
+ --name lab4-container \
+ --restart unless-stopped \
+ -p 80:80 \
+ ch1fir/iit-lab5:latest
 
      docker run -d \
 	  --name watchtower \
